@@ -9,12 +9,9 @@
                     <i class="fa fa-circle"></i>
                 </li>
                 <li>
-                    <a href="#">文章管理</a>
-                    <i class="fa fa-circle"></i>
+                    <span>文章管理</span>
                 </li>
-                <li>
-                    <span>创建新文章</span>
-                </li>
+
             </ul>
         </div>
 

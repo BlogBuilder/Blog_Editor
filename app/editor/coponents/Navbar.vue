@@ -49,8 +49,8 @@
             <li class="heading">
                 <h3 class="uppercase">Blog</h3>
             </li>
-            <li class="nav-item" >
-                <a href="javascript:;" class="nav-link nav-toggle" >
+            <li class="nav-item">
+                <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-diamond"></i>
                     <span class="title">文章管理</span>
                     <span class="arrow"></span>
@@ -61,26 +61,16 @@
                             <span class="title">创建新文章</span>
                         </a>
                     </router-link>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
+                    <router-link :to="{ path: '/article/change' }" tag="li" active-class="active">
+                        <a class="nav-link ">
                             <span class="title">文章信息维护</span>
                         </a>
-                    </li>
+                    </router-link>
                     <router-link :to="{ path: '/article/list' }" tag="li" active-class="active">
                         <a class="nav-link ">
                             <span class="title">文章列表</span>
                         </a>
                     </router-link>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
-                            <span class="title">属性设置</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
-                            <span class="title">数据汇总</span>
-                        </a>
-                    </li>
                 </ul>
             </li>
             <li class="nav-item  ">
