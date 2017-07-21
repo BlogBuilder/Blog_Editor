@@ -367,7 +367,6 @@
                         }
                         break;
                 }
-                debugger
                 confirm({
                     content: me.resource.length == 0 ? "您尚未设置素材，是否使用默认素材并发表文章？" : "是否发表文章？",
                     success: () => {

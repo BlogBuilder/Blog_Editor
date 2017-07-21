@@ -80,26 +80,22 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
+                    <router-link :to="{ path: '/category/create' }" tag="li" active-class="active">
+                        <a class="nav-link ">
                             <span class="title">创建新分类</span>
                         </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
+                    </router-link>
+                    <router-link :to="{ path: '/category/change' }" tag="li" active-class="active">
+                        <a class="nav-link ">
                             <span class="title">分类信息维护</span>
                         </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
+                    </router-link>
+                    <router-link :to="{ path: '/category/list' }" tag="li" active-class="active">
+                        <a class="nav-link ">
                             <span class="title">分类列表</span>
                         </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
-                            <span class="title">回收站</span>
-                        </a>
-                    </li>
+                    </router-link>
+
                 </ul>
             </li>
             <li class="nav-item  ">

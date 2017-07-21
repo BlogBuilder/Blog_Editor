@@ -57,6 +57,24 @@ var BlogUtils = {
             return false;
         }
         document.body.removeChild(textArea);
+    },
+    selectAll(name, handle){
+        handle.off("click").on("click", function () {
+            var oCheckBox = jQuery("[type=checkbox][name=" + name + "]");
+            for (var i = 0; i < oCheckBox.length; i++) {
+                jQuery(oCheckBox[i]).prop("checked", !jQuery(oCheckBox[i]).prop("checked"));
+            }
+            //jQuery("[type=checkbox][name=" + name + "]").prop("checked", true);
+        });
+    },
+    getSelect(name){
+        var oCheckBox = jQuery("[type=checkbox][name=" + name + "]:checked");
+        var temp = [];
+        for (var i = 0; i < oCheckBox.length; i++) {
+            temp.push(oCheckBox[i].value);
+        }
+        console.log(temp);
+        return temp;
     }
 };
 window.alert = function (content) {

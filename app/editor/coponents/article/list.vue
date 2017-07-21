@@ -185,7 +185,7 @@
                                                             <ul class="dropdown-menu" role="menu">
                                                                 <li>
                                                                     <router-link
-                                                                            :to="{path:'/article_change',query:{id:details.id}}">
+                                                                            :to="{path:'/article/change',query:{id:details.id}}">
                                                                         <span class="title">修改文章</span></router-link>
                                                                 </li>
                                                                 <li>
