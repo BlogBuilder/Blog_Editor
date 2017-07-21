@@ -342,32 +342,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
-                                <a href="page_user_profile_1.html">
-                                    <i class="icon-user"></i> 个人资料 </a>
-                            </li>
-                            <li>
-                                <a href="app_calendar.html">
-                                    <i class="icon-calendar"></i> 日程安排 </a>
-                            </li>
-                            <li>
-                                <a href="app_inbox.html">
-                                    <i class="icon-envelope-open"></i> 站内信
-                                    <span class="badge badge-danger"> 3 </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="app_todo.html">
-                                    <i class="icon-rocket"></i> 任务清单
-                                    <span class="badge badge-success"> 7 </span>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="page_user_lock_1.html">
-                                    <i class="icon-lock"></i> 账户锁定 </a>
-                            </li>
-                            <li>
-                                <a href="page_user_login_1.html">
+                                <a href="javascript:;" @click="quitLogin">
                                     <i class="icon-key"></i> 退出登陆 </a>
                             </li>
                         </ul>
@@ -390,10 +365,32 @@
     <!-- END HEADER -->
 </template>
 <style>
-    .page-header.navbar .page-logo .logo-default{
+    .page-header.navbar .page-logo .logo-default {
         margin: 2px auto 0 auto;
     }
 </style>
 <script>
-
+    module.exports = {
+        data() {
+            return {}
+        },
+        mounted () {
+        },
+        methods: {
+            quitLogin(){
+                const me = this;
+                me.$http.get("/api/user/quit").then(response => {
+                    const data = response.data;
+                    codeState(data.code, {
+                        200(){
+                            alert("退出成功！");
+                            window.location.href = "/login.html";
+                        }
+                    })
+                }, response => {
+                    serverErrorInfo();
+                })
+            }
+        }
+    };
 </script>

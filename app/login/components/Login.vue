@@ -13,7 +13,8 @@
                     <div class="col-xs-6">
                         <input class="form-control form-control-solid placeholder-no-fix form-group"
                                type="text"
-                               autocomplete="off" placeholder="管理员账号" name="username" v-model="username" required/></div>
+                               autocomplete="off" placeholder="管理员账号" name="username" v-model="username" required/>
+                    </div>
                     <div class="col-xs-6">
                         <input class="form-control form-control-solid placeholder-no-fix form-group"
                                type="password"
@@ -76,7 +77,7 @@
                         codeState(data.code, {
                             200: function () {
                                 me._rememberData();
-                                window.location.href = "/admin.html"
+                                window.location.href = "/"
                             },
                             502: "你输入的用户名或密码错误",
                             504: "您输入的用户名不存在"
