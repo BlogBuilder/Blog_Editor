@@ -1,6 +1,6 @@
 /* Cubic Bezier Transition */
 .login-bg{
-  background-image:url(../../global/img/login/bg1.png);
+  background-image:url("http://cdn.qulongjun.cn/bg1.png");
 }
 .user-login-5 {
   min-height: 100vh; }
