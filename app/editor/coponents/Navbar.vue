@@ -105,60 +105,22 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
+                    <router-link :to="{ path: '/tag/create' }" tag="li" active-class="active">
+                        <a class="nav-link ">
                             <span class="title">创建新标签</span>
                         </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
+                    </router-link>
+                    <router-link :to="{ path: '/tag/change' }" tag="li" active-class="active">
+                        <a class="nav-link ">
                             <span class="title">标签信息维护</span>
                         </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
+                    </router-link>
+                    <router-link :to="{ path: '/tag/list' }" tag="li" active-class="active">
+                        <a class="nav-link ">
                             <span class="title">标签列表</span>
                         </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
-                            <span class="title">回收站</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item  ">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-diamond"></i>
-                    <span class="title">评论管理</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
-                            <span class="title">评论审核</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
-                            <span class="title">收藏评论</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
-                            <span class="title">过滤设置</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
-                            <span class="title">隐藏评论</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="javascript:;" class="nav-link ">
-                            <span class="title">评论设置</span>
-                        </a>
-                    </li>
+                    </router-link>
+
                 </ul>
             </li>
         </ul>

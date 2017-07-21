@@ -5,7 +5,7 @@
         <div class="portlet light portlet-fit portlet-form ">
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="#" class="form-horizontal" id="category_add">
+                <form action="#" class="form-horizontal" id="tag_add">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button>
@@ -39,7 +39,7 @@
 </template>
 <script>
     const _handleValidation = () => {
-        var form1 = $('#category_add');
+        var form1 = $('#tag_add');
         var error1 = $('.alert-danger', form1);
         //var success1 = $('.alert-success', form1);
         form1.validate({
@@ -49,7 +49,7 @@
             ignore: "", // validate all fields including form hidden input
             messages: {
                 name: {
-                    required: "分类名称不能为空"
+                    required: "标签名称不能为空"
                 }
             },
             rules: {
@@ -104,10 +104,10 @@
                 const me = this;
                 const id = me.$route.query.id;
                 if (!id) {
-                    error("请先选择一个分类！");
+                    error("请先选择一个标签！");
                     return;
                 }
-                me.$http.get("/api/category/findById", {
+                me.$http.get("/api/tag/findById", {
                     params: {
                         id: id
                     }
@@ -120,16 +120,16 @@
             },
             createCategory(){
                 const me = this;
-                const result = jQuery("#category_add").valid();
+                const result = jQuery("#tag_add").valid();
                 if (result) {
-                    me.$http.post("/api/category/change", {
+                    me.$http.post("/api/tag/change", {
                         name: me.name,
                         id: me.$route.query.id
                     }).then(response => {
                         const data = response.data;
                         codeState(data.code, {
                             200: () => {
-                                alert("分类修改成功！");
+                                alert("标签修改成功！");
                                 me._initData();
                             }
                         })

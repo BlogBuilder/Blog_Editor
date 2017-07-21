@@ -10,6 +10,10 @@ import CategoryCreate from '../coponents/category/create.vue'
 import CategoryList from '../coponents/category/list.vue'
 import CategoryChange from '../coponents/category/change.vue'
 
+import Tag from '../coponents/tag/Tag.vue'
+import TagCreate from '../coponents/tag/create.vue'
+import TagList from '../coponents/tag/list.vue'
+import TagChange from '../coponents/tag/change.vue'
 
 
 //路由映射
@@ -51,6 +55,25 @@ var routes = [
                 path: "change",
                 name: "change",
                 component: CategoryChange
+            }
+        ]
+    }, {
+        path: "/tag",
+        name: "tag",
+        component: Tag,
+        children: [
+            {
+                path: "create",
+                name: "create",
+                component: TagCreate
+            }, {
+                path: "list",
+                name: "list",
+                component: TagList
+            }, {
+                path: "change",
+                name: "change",
+                component: TagChange
             }
         ]
     }

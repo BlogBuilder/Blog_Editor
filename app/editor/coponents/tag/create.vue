@@ -5,7 +5,7 @@
         <div class="portlet light portlet-fit portlet-form ">
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="#" class="form-horizontal" id="category_add">
+                <form action="#" class="form-horizontal" id="tag_add">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button>
@@ -25,7 +25,7 @@
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-5 col-md-9">
-                                <button type="button" class="btn green" @click="createCategory">修 改</button>
+                                <button type="button" class="btn green" @click="createCategory">保 存</button>
                                 <button type="reset" class="btn default">重 置</button>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
 </template>
 <script>
     const _handleValidation = () => {
-        var form1 = $('#category_add');
+        var form1 = $('#tag_add');
         var error1 = $('.alert-danger', form1);
         //var success1 = $('.alert-success', form1);
         form1.validate({
@@ -49,7 +49,7 @@
             ignore: "", // validate all fields including form hidden input
             messages: {
                 name: {
-                    required: "分类名称不能为空"
+                    required: "标签名称不能为空"
                 }
             },
             rules: {
@@ -95,42 +95,21 @@
             }
         },
         mounted () {
-            const me = this;
             _handleValidation();
-            me._initData();
         },
         methods: {
-            _initData(){
-                const me = this;
-                const id = me.$route.query.id;
-                if (!id) {
-                    error("请先选择一个分类！");
-                    return;
-                }
-                me.$http.get("/api/category/findById", {
-                    params: {
-                        id: id
-                    }
-                }).then(response => {
-                    const data = response.data;
-                    me.name = data.name;
-                }, response => {
-                    serverErrorInfo();
-                })
-            },
             createCategory(){
                 const me = this;
-                const result = jQuery("#category_add").valid();
+                const result = jQuery("#tag_add").valid();
                 if (result) {
-                    me.$http.post("/api/category/change", {
-                        name: me.name,
-                        id: me.$route.query.id
+                    me.$http.post("/api/tag/create", {
+                        name: me.name
                     }).then(response => {
                         const data = response.data;
                         codeState(data.code, {
                             200: () => {
-                                alert("分类修改成功！");
-                                me._initData();
+                                alert("标签创建成功！");
+                                me.name = "";
                             }
                         })
                     }, response => {

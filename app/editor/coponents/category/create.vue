@@ -17,7 +17,7 @@
                             </label>
                             <div class="col-md-8">
                                 <input type="text" class="form-control" id="title" v-model="name" placeholder=""
-                                       name="title">
+                                       name="name">
                                 <div class="form-control-focus"></div>
                             </div>
                         </div>
@@ -53,10 +53,7 @@
                 }
             },
             rules: {
-                title: {
-                    required: true
-                },
-                categoryId: {
+                name: {
                     required: true
                 }
             },
