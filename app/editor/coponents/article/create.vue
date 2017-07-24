@@ -314,6 +314,8 @@
                 editor = new E('#editor');
                 editor.customConfig.uploadImgServer = '/api/file/upload';
                 editor.create();
+                document.querySelector('.w-e-text-container').style.minHeight = "500px";
+                document.querySelector('.w-e-text-container').style.height = "auto";
             },
             fetchCategory(){
                 const me = this;
