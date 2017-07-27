@@ -411,8 +411,12 @@
                         }
                         break;
                 }
+                if (me.resource.length == 0 && me.type == 3) {
+                    error("视频文章必须设置资源！");
+                    return false;
+                }
                 confirm({
-                    content: me.resource.length == 0 ? "您尚未设置素材，是否使用默认素材并发表文章？" : "是否发表文章？",
+                    content: (me.resource.length == 0 && me.type != 5) ? "您尚未设置素材，是否使用默认素材并发表文章？" : "是否发表文章？",
                     success: () => {
                         me.$http.post("/api/article/change", {
                             title: me.title,
