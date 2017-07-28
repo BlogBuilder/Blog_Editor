@@ -13,7 +13,6 @@
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="title">标题
-                                <span class="required">*</span>
                             </label>
                             <div class="col-md-8">
                                 <input type="text" class="form-control" id="title" v-model="title" placeholder=""
@@ -24,7 +23,6 @@
                         </div>
                         <div class="form-group form-md-line-input">
                             <label class="col-md-2 control-label" for="editor">内容
-                                <span class="required">*</span>
                             </label>
                             <div class="col-md-8">
                                 <div id="editor"></div>
@@ -215,17 +213,11 @@
             focusInvalid: false, // do not focus the last invalid input
             ignore: "", // validate all fields including form hidden input
             messages: {
-                title: {
-                    required: "文章标题不能为空"
-                },
                 categoryId: {
                     required: "分类不能为空"
                 }
             },
             rules: {
-                title: {
-                    required: true
-                },
                 categoryId: {
                     required: true
                 }
@@ -369,8 +361,12 @@
                         }
                         break;
                 }
+                if (me.resource.length == 0 && me.type == 3) {
+                    error("视频文章必须设置资源！");
+                    return false;
+                }
                 confirm({
-                    content: me.resource.length == 0 ? "您尚未设置素材，是否使用默认素材并发表文章？" : "是否发表文章？",
+                    content: (me.resource.length == 0 && me.type != 5) ? "您尚未设置素材，是否使用默认素材并发表文章？" : "是否发表文章？",
                     success: () => {
                         me.$http.post("/api/article/create", {
                             title: me.title,
