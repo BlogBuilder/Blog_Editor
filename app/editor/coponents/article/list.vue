@@ -222,7 +222,7 @@
                                                         </small>
                                                     </blockquote>
                                                     <hr/>
-                                                    <div v-html="details.content"></div>
+                                                    <div v-html="details.content" class="typo"></div>
                                                 </div>
                                             </div>
                                             <hr/>
